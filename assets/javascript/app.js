@@ -12,7 +12,7 @@
     let currentQuestion;
     let unanswered;
     let userSelect;
-    let answered;
+    let answered = false;
 
 //objects
 var triviaQuestions = [
@@ -93,7 +93,7 @@ function newQuestion(){
 function answerPage(){
     $("#question").empty();
     $('.thisChoice').empty();
-    var rightAnswer = triviaQuestions[currentQuestion].answerArr[triviaQuestions[currentQuestion].answer];
+    var rightAnswer = triviaQuestions[currentQuestion].answerArr[triviaQuestions[currentQuestion].answers];
     var rightAnswerIndex = triviaQuestions[currentQuestion].answers;
     if((userSelect === rightAnswerIndex) && (answered = true) ){
         correct++;
@@ -104,13 +104,14 @@ function answerPage(){
         wrong++;
         console.log("wrong" + wrong);
         $("#message").html(messages.incorrect);
-        $("#correctAnswer").html("The correct answer was" + rightAnswer);
-        answered = true;
+        $("#correctedAnswer").html("The correct answer was" + rightAnswer);
+        //answered = true;
     } else{
         unanswered++;
+        answered = false;
         console.log("unanswered" + unanswered);
         $("#message").html(messages.timeEnd);
-        $("#correctAnswer").html("The correct answer was" + rightAnswer);
+        $("#correctedAnswer").html("The correct answer was" + rightAnswer);
     }
 
     if(currentQuestion == (triviaQuestions.length -1)){
@@ -131,7 +132,7 @@ function endGame(){
     $("#endMessage").html(messages.finished);
     $("#correct").html("Number Correct: " + correct);
     $("#wrong").html("Number Wrong: " + wrong);
-    $("unanswered").html("Unanswered : " + unanswered);    
+    $("#unanswered").html("Unanswered : " + unanswered);    
     
 }
 function timeRem(){
