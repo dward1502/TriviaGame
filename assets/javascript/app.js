@@ -166,6 +166,7 @@ function decrementTime(){
 
 $("#startBtn").on("click", function(){
     $(this).hide();
+    $("#n64pic").hide();
     newGame();
 });
 $("#startOverBtn").on("click",function(){

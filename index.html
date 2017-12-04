@@ -9,24 +9,25 @@
     <body>
         
         <div class="container">
-            <h1> Nintendo 64 Trivia Game!!</h1>
+            <h1 class="title"> Nintendo 64 Trivia Game!!</h1>
 
-
-            <div class="gameContainer">
-                <button class="btn btn-default" id="startBtn">Start</button>
-                <div id="time-remaining"> </div>
-                <div id="question"></div>
-                <div id="answerList"></div>
-                <div id="message"></div>
-                <div id="correctedAnswer"></div>
+                <img src="assets/images/n64.png" alt="N64 game montage" id="n64pic">
+                <div class="gameContainer">
+           
+                <button class="btn " id="startBtn">Start</button>
+                <div class="time" id="time-remaining"> </div>
+                <div class="quest" id="question"></div>
+                <div class="text answer" id="answerList"></div>
+                <div class="text" id="message"></div>
+                <div class="text correct" id="correctedAnswer"></div>
                 <div id="image"></div>
-                <div  id="endMessage"></div>
-                <div id="correct"></div>
-                <div id="wrong"></div>
-                <div id="unanswered"></div>
+                <div class="text end" id="endMessage"></div>
+                <div class="text" id="correct"></div>
+                <div class="text" id="wrong"></div>
+                <div class="text" id="unanswered"></div>
                 <button class="btn btn-default" id="startOverBtn">Start Over!</button>        
-
             </div>
+                    
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="assets/javascript/app.js"></script>
