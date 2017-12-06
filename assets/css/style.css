@@ -12,6 +12,9 @@ h1{
     text-align: center;
     font-family: 'Zurich', sans-serif;
 }
+h1:nth-child(3){
+    color: red;
+}
 
 .text{
     color: white;

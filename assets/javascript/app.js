@@ -15,6 +15,8 @@
     let answered = false;
 
 //objects
+//==============================================
+//question and answer array with object nested.
 var QandA = [
 
     {
@@ -54,6 +56,7 @@ var QandA = [
         image: " assets/images/question7.gif"
             
 }];
+//object for my set of messages that will be used 
 var messages ={
         correct:"You answered correctly! ",
         incorrect:"Incorrect answer!",
@@ -63,6 +66,7 @@ var messages ={
 
 //Functions 
 //=============================================
+//creates new game; resets variables, and empties out the end page div. also calls new question function
 function newGame(){
     currentQuestion = 0;
     correct = 0;
@@ -74,6 +78,7 @@ function newGame(){
     $("#unanswered").empty();
     newQuestion();
 }
+//populates divs with new question and answers that are linked to the new question. in between questions it resets the divs used with jQuery
 function newQuestion(){
     $("#message").empty();
     $("#correctedAnswer").empty();
@@ -97,14 +102,15 @@ function newQuestion(){
     });
 
 }
+//this function checks the answer if it is valid and sets the messages and image to html with jQuery
 function answerPage(){
     $("#question").empty();
     $('.thisChoice').empty();
+    //creating variables to use in the if else statement to decide correct answer or unanswered
     var rightAnswer = QandA[currentQuestion].answerArr[QandA[currentQuestion].answers];
-    var rightAnswerIndex = QandA[currentQuestion].answers;
-    //$("#image").html(QandA[currentQuestion].image);
-    //.prepend('<img id="theImg" src="theImg.png" />')
-    $("#image").html( '<img src =' + QandA[currentQuestion].image +'>');
+    var rightAnswerIndex = QandA[currentQuestion].answers;    
+    $("#image").html( '<img src =' + QandA[currentQuestion].image +' width="400px" height="200px">');
+    //if else statement to decide whether the trivia choice is correct, incorrect or unanswered
     if(answered === false){
         unanswered++;
         
@@ -134,10 +140,12 @@ function answerPage(){
     }
 
 }
+//function that populates the end page information and clears out the previous question pages loop
 function endGame(){
     $("#time-remaining").empty();
     $("#message").empty();
     $("#correct").empty();
+    $('#correctedAnswer').empty();
     $("#startOverBtn").addClass('reset');
     $("#startOverBtn").show();
     $("#image").empty();
@@ -147,12 +155,14 @@ function endGame(){
     $("#unanswered").html("Unanswered : " + unanswered);    
     
 }
+//initiates countdown for interval time and sends info to HTMl
 function timeRem(){
     time = 15;
     $("#time-remaining").html("Time remaining : " + time );
     answered = true;
     timer = setInterval(decrementTime, 1000);
 }
+//when timer decreases to zero or there is an answer it stops the timer
 function decrementTime(){
     time --;
     $("#time-remaining").html("Time remaining : " + time );
@@ -163,7 +173,7 @@ function decrementTime(){
     }
 }
 
-
+//pair of buttons that are used to navigate the game
 $("#startBtn").on("click", function(){
     $(this).hide();
     $("#n64pic").hide();
